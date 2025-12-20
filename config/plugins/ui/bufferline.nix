@@ -63,8 +63,8 @@
             function(count, level, diagnostics_dict, context)
               local s = ""
               for e, n in pairs(diagnostics_dict) do
-                local sym = e == "error" and " "
-                  or (e == "warning" and " " or "" )
+                local sym = e == "error" and " "
+                  or (e == "warning" and " " or "" )
                 if(sym ~= "") then
                   s = s .. " " .. n .. sym
                 end
@@ -84,51 +84,13 @@
             }
           ];
 
-          groups = {
-            options = {
-              toggle_hidden_on_enter = true;
-            };
-
-            items = [
-              {
-                name = "Tests";
-                highlight = {
-                  underline = true;
-                  fg = "#a6da95";
-                  sp = "#494d64";
-                };
-                priority = 2;
-                # icon = "";
-                matcher.__raw = ''
-                  function(buf)
-                    return buf.name:match('%test') or buf.name:match('%.spec')
-                  end
-                '';
-              }
-              {
-                name = "Docs";
-                highlight = {
-                  undercurl = true;
-                  fg = "#ffffff";
-                  sp = "#494d64";
-                };
-                auto_close = false;
-                matcher.__raw = ''
-                  function(buf)
-                    return buf.name:match('%.md') or buf.name:match('%.txt')
-                  end
-                '';
-              }
-            ];
-          };
-
-          left_trunc_marker = "";
+          left_trunc_marker = "";
           max_name_length = 18;
           max_prefix_length = 15;
           modified_icon = "●";
 
           persist_buffer_sort = true;
-          right_trunc_marker = "";
+          right_trunc_marker = "";
           separator_style = "thin";
           show_buffer_close_icons = true;
           show_buffer_icons = true;

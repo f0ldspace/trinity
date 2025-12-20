@@ -42,8 +42,8 @@ If you'd like to give it a try before installing:
 
 ### Adding it as a flake
 
-1: Go to the flake.nix and add `trinity.url = "github:f0ldspace/trinity"` to your
-inputs.
+1: Go to the flake.nix and add `trinity.url = "github:f0ldspace/trinity"` to
+your inputs.
 
 ```nix
 # flake
