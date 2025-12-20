@@ -129,7 +129,7 @@
 
           persist_buffer_sort = true;
           right_trunc_marker = "";
-          separator_style = "slant";
+          separator_style = "thin";
           show_buffer_close_icons = true;
           show_buffer_icons = true;
           show_close_icon = true;
