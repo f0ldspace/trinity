@@ -33,7 +33,7 @@ in
 
     conform-nvim.settings = {
       formatters_by_ft.markdown = [ "deno_fmt" ];
-      formatters.deno_fmt.prepend_args = [ "--prose-wrap" "preserve" ];
+      formatters.deno_fmt.append_args = [ "--prose-wrap" "preserve" ];
     };
 
     lsp.servers = {
