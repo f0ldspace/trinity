@@ -45,9 +45,8 @@ in
           "text"
         ];
 
-        settings.completionEnabled = true;
-
-        extraOptions = {
+        settings = {
+          completionEnabled = true;
           checkFrequency = "save";
           language = "en-GB";
         };
