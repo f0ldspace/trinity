@@ -2,7 +2,7 @@
       <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nix-snowflake-colours.svg" width="96px" height="96px" />
       <br>
 
-Akari
+Trinity
 
 <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/palette/macchiato.png" width="600px" />
 <br>
@@ -20,7 +20,7 @@ Akari
    <br>
 </div>
 </h1>
-<p align=center>Standalone Nixvim flake based on Lazyvim with some more changes.</p>
+<p align=center>a fork of akari focused on rust, python, js/ts and markdown.</p>
 
 ---
 
@@ -38,11 +38,11 @@ Akari
 # 🔨 Installation
 
 If you'd like to give it a try before installing:
-`nix run github:spector700/Akari`
+`nix run github:f0ldspace/trinity`
 
 ### Adding it as a flake
 
-1: Go to the flake.nix and add `Akari.url = "github:spector700/Akari"` to your
+1: Go to the flake.nix and add `trinity.url = "github:f0ldspace/trinity"` to your
 inputs.
 
 ```nix
@@ -51,14 +51,14 @@ inputs.
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    Akari.url = "github:spector700/Akari";
+    Akari.url = "github:f0ldspace/trinity";
   };
 }
 ```
 
 2: Run nix flake update
 
-3: Install it by adding `inputs.Akari.packages.${system}.default` to your
+3: Install it by adding `inputs.trinity.packages.${system}.default` to your
 environment.systemPackages or home.packages. If you're using home-manager.
 
 ```nix

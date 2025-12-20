@@ -6,7 +6,7 @@ in
 {
   plugins = {
     hardtime = {
-      enable = true;
+      enable = false;
 
       settings = {
         disable_mouse = false;
