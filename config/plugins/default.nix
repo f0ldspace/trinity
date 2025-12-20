@@ -39,9 +39,9 @@
     ./lsp/lspsaga.nix
     ./lsp/trouble.nix
 
-    ./lang/cpp.nix
+    # ./lang/cpp.nix
     ./lang/css.nix
-    ./lang/docker.nix
+    # ./lang/docker.nix
     ./lang/html.nix
     ./lang/json.nix
     ./lang/lua.nix
@@ -49,7 +49,9 @@
     ./lang/nix.nix
     ./lang/python.nix
     ./lang/shell.nix
+    ./lang/rust.nix
     ./lang/typescript.nix
+    ./lang/typst.nix
     ./lang/yaml.nix
 
     ./treesitter/treesitter.nix
@@ -70,14 +72,14 @@
     ./ui/ufo.nix
 
     ./util/colorizer.nix
-    ./util/compiler.nix
+    # ./util/compiler.nix
     ./util/debugprint.nix
     ./util/devdocs.nix
-    ./util/firenvim.nix
+    # ./util/firenvim.nix
     ./util/glance.nix
     ./util/hardtime.nix
     ./util/img-clip.nix
-    ./util/kulala.nix
+    # ./util/kulala.nix
     ./util/nvim-autopairs.nix
     ./util/nvim-surround.nix
     ./util/plenary.nix

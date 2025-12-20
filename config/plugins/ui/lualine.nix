@@ -51,8 +51,8 @@ in
         };
 
         section_separators = {
-          left = "";
-          right = "";
+          left = "";
+          right = "";
         };
       };
 
@@ -131,16 +131,6 @@ in
       require("lualine").setup({
           sections = {
             lualine_c = {
-                {
-                  "diagnostics",
-                  symbols = {
-                    error = "${icons.diagnostics.Error}",
-                    warn  = "${icons.diagnostics.Warning}",
-                    hint  = "${icons.diagnostics.Hint}",
-                    info  = "${icons.diagnostics.BoldInformation}",
-                  },
-                  separator = ")"
-                },
                 { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
                 { ui.pretty_path() },
             },
@@ -191,49 +181,6 @@ in
                 modified = "${icons.git.LineModified}",
                 removed= "${icons.git.LineRemoved}",
                 },
-              },
-              -- FIX
-              -- { Snacks.profiler.status() },
-              ${optionalString (config.plugins.sidekick.enable) ''
-                {
-                  function()
-                    return " "
-                  end,
-
-                  color =
-                  function()
-                    local status_mod = package.loaded["sidekick.status"]
-                    if not status_mod then return nil end
-                    local status = status_mod.get()
-                    if status then
-                        return status.kind == "Error" and "DiagnosticError" or status.busy and "DiagnosticWarn" or "Special"
-                    end
-                  end,
-                  separator = "(",
-
-                  cond = function()
-                    local status = package.loaded["sidekick.status"]
-                    return status and status.get() ~= nil
-                  end,
-                },
-              ''}
-              {
-                function()
-                    local msg = ""
-                    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                    local clients = vim.lsp.get_clients()
-                    if next(clients) == nil then
-                        return msg
-                    end
-                  for _, client in ipairs(clients) do
-                      local filetypes = client.config.filetypes
-                      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                          return client.name
-                      end
-                  end
-                  return msg
-                end,
-                icon = " ",
               },
               ${optionalString (config.plugins.copilot-lua.enable) "copilot,"}
           }
