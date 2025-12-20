@@ -11,7 +11,10 @@
     # offering improved performance and flexibility.
     luaLoader.enable = true;
 
-    clipboard.providers.wl-copy.enable = true;
+    clipboard = {
+      providers.wl-copy.enable = true;
+      register = "unnamedplus";
+    };
 
     globals = {
       # Disable useless providers
