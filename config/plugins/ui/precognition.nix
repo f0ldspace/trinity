@@ -1,6 +1,7 @@
 {
   plugins.precognition = {
     enable = true;
+    lazyLoad.settings.event = [ "DeferredUIEnter" ];
     settings = {
       startVisible = false;
     };

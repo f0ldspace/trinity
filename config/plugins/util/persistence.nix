@@ -3,6 +3,7 @@
   plugins = {
     persistence = {
       enable = true;
+      lazyLoad.settings.event = [ "DeferredUIEnter" ];
     };
   };
 

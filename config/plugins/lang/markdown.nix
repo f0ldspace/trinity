@@ -47,7 +47,7 @@ in
         ];
 
         settings = {
-          completionEnabled = true;
+          completionEnabled = false;
           checkFrequency = "save";
           language = "en-GB";
         };

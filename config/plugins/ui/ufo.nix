@@ -52,6 +52,7 @@ in
 
     nvim-ufo = {
       enable = true;
+      lazyLoad.settings.event = [ "BufReadPost" ];
       settings = {
         provider_selector = # lua
           ''

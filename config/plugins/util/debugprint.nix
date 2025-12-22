@@ -1,6 +1,15 @@
+{ config, lib, ... }:
 {
   plugins.debugprint = {
     enable = true;
+    lazyLoad.settings.keys = lib.mkIf config.plugins.lz-n.enable [
+      { __unkeyed-1 = "<leader>pb"; desc = "Debug print below"; }
+      { __unkeyed-1 = "<leader>pB"; desc = "Debug print above"; }
+      { __unkeyed-1 = "<leader>pv"; desc = "Debug print variable below"; }
+      { __unkeyed-1 = "<leader>pV"; desc = "Debug print variable above"; }
+      { __unkeyed-1 = "<leader>po"; desc = "Debug print textobj below"; }
+      { __unkeyed-1 = "<leader>pO"; desc = "Debug print textobj above"; }
+    ];
 
     settings = {
       commands = {

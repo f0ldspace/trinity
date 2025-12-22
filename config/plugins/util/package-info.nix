@@ -2,6 +2,7 @@
 {
   plugins.package-info = {
     enable = true;
+    lazyLoad.settings.event = [ "BufReadPost" ];
     enableTelescope = config.plugins.telescope.enable;
 
     settings = {

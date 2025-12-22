@@ -3,6 +3,7 @@
   plugins = {
     project-nvim = {
       enable = true;
+      lazyLoad.settings.event = [ "DeferredUIEnter" ];
       enableTelescope = config.plugins.telescope.enable;
     };
   };
