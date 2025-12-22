@@ -1,23 +1,112 @@
+{ config, lib, ... }:
 {
   plugins = {
     dap-virtual-text.enable = true;
     dap = {
       enable = true;
+
+      lazyLoad.settings.keys = lib.mkIf config.plugins.lz-n.enable [
+        {
+          __unkeyed-1 = "<leader>dc";
+          __unkeyed-2 = ":DapContinue<cr>";
+          mode = [ "n" ];
+          desc = "Continue";
+        }
+        {
+          __unkeyed-1 = "<leader>dO";
+          __unkeyed-2 = ":DapStepOver<cr>";
+          mode = [ "n" ];
+          desc = "Step over";
+        }
+        {
+          __unkeyed-1 = "<leader>di";
+          __unkeyed-2 = ":DapStepInto<cr>";
+          mode = [ "n" ];
+          desc = "Step Into";
+        }
+        {
+          __unkeyed-1 = "<leader>do";
+          __unkeyed-2 = ":DapStepOut<cr>";
+          mode = [ "n" ];
+          desc = "Step Out";
+        }
+        {
+          __unkeyed-1 = "<leader>dp";
+          __unkeyed-2 = "<cmd>lua require('dap').pause()<cr>";
+          mode = [ "n" ];
+          desc = "Pause";
+        }
+        {
+          __unkeyed-1 = "<leader>db";
+          __unkeyed-2 = ":DapToggleBreakpoint<cr>";
+          mode = [ "n" ];
+          desc = "Toggle Breakpoint";
+        }
+        {
+          __unkeyed-1 = "<leader>dB";
+          __unkeyed-2 = "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>";
+          mode = [ "n" ];
+          desc = "Breakpoint (conditional)";
+        }
+        {
+          __unkeyed-1 = "<leader>dR";
+          __unkeyed-2 = ":DapToggleRepl<cr>";
+          mode = [ "n" ];
+          desc = "Toggle REPL";
+        }
+        {
+          __unkeyed-1 = "<leader>dr";
+          __unkeyed-2 = "<cmd>lua require('dap').run_last()<cr>";
+          mode = [ "n" ];
+          desc = "Run Last";
+        }
+        {
+          __unkeyed-1 = "<leader>ds";
+          __unkeyed-2 = "<cmd>lua require('dap').session()<cr>";
+          mode = [ "n" ];
+          desc = "Session";
+        }
+        {
+          __unkeyed-1 = "<leader>dt";
+          __unkeyed-2 = ":DapTerminate<cr>";
+          mode = [ "n" ];
+          desc = "Terminate";
+        }
+        {
+          __unkeyed-1 = "<leader>dw";
+          __unkeyed-2 = "<cmd>lua require('dap.ui.widgets').hover()<cr>";
+          mode = [ "n" ];
+          desc = "Hover Widget";
+        }
+        {
+          __unkeyed-1 = "<leader>du";
+          __unkeyed-2 = "<cmd>lua require('dapui').toggle()<cr>";
+          mode = [ "n" ];
+          desc = "Toggle UI";
+        }
+        {
+          __unkeyed-1 = "<leader>de";
+          __unkeyed-2 = "<cmd>lua require('dapui').eval()<cr>";
+          mode = [ "n" ];
+          desc = "Eval";
+        }
+      ];
+
       signs = {
         dapBreakpoint = {
-          text = " ";
+          text = " ";
           texthl = "DiagnosticInfo";
         };
         dapBreakpointCondition = {
-          text = " ";
+          text = " ";
           texthl = "DiagnosticInfo";
         };
         dapBreakpointRejected = {
-          text = " ";
+          text = " ";
           texthl = "DiagnosticError";
         };
         dapLogPoint = {
-          text = " ";
+          text = " ";
           texthl = "DiagnosticInfo";
         };
         dapStopped = {
@@ -84,119 +173,4 @@
       }
     ];
   };
-
-  keymaps = [
-    {
-      mode = [ "n" ];
-      action = ":DapContinue<cr>";
-      key = "<leader>dc";
-      options = {
-        desc = "Continue";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = ":DapStepOver<cr>";
-      key = "<leader>dO";
-      options = {
-        desc = "Step over";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = ":DapStepInto<cr>";
-      key = "<leader>di";
-      options = {
-        desc = "Step Into";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = ":DapStepOut<cr>";
-      key = "<leader>do";
-      options = {
-        desc = "Step Out";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dap').pause()<cr>";
-      key = "<leader>dp";
-      options = {
-        desc = "Pause";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = ":DapToggleBreakpoint<cr>";
-      key = "<leader>db";
-      options = {
-        desc = "Toggle Breakpoint";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>";
-      key = "<leader>dB";
-      options = {
-        desc = "Breakpoint (conditional)";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = ":DapToggleRepl<cr>";
-      key = "<leader>dR";
-      options = {
-        desc = "Toggle REPL";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dap').run_last()<cr>";
-      key = "<leader>dr";
-      options = {
-        desc = "Run Last";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dap').session()<cr>";
-      key = "<leader>ds";
-      options = {
-        desc = "Session";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = ":DapTerminate<cr>";
-      key = "<leader>dt";
-      options = {
-        desc = "Terminate";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dap.ui.widgets').hover()<cr>";
-      key = "<leader>dw";
-      options = {
-        desc = "Hover Widget";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dapui').toggle()<cr>";
-      key = "<leader>du";
-      options = {
-        desc = "Toggle UI";
-      };
-    }
-    {
-      mode = [ "n" ];
-      action = "<cmd>lua require('dapui').eval()<cr>";
-      key = "<leader>de";
-      options = {
-        desc = "Eval";
-      };
-    }
-  ];
 }

@@ -25,6 +25,7 @@
 
     treesitter-context = {
       inherit (config.plugins.treesitter) enable;
+      lazyLoad.settings.event = lib.mkIf config.plugins.lz-n.enable [ "BufReadPost" ];
       settings = {
         max_lines = 4;
         min_window_height = 40;

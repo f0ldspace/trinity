@@ -1,15 +1,17 @@
+{ config, lib, ... }:
 {
-  plugins.yazi.enable = true;
+  plugins.yazi = {
+    enable = true;
 
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>e";
-      action = "<cmd>Yazi<cr>";
-      options = {
-        desc = "Yazi toggle";
-        silent = true;
-      };
-    }
-  ];
+    lazyLoad.settings = {
+      cmd = [ "Yazi" ];
+      keys = lib.mkIf config.plugins.lz-n.enable [
+        {
+          __unkeyed-1 = "<leader>e";
+          __unkeyed-2 = "<cmd>Yazi<cr>";
+          desc = "Yazi toggle";
+        }
+      ];
+    };
+  };
 }

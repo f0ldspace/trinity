@@ -1,7 +1,45 @@
+{ config, lib, ... }:
 {
   plugins = {
     trouble = {
       enable = true;
+
+      lazyLoad.settings = {
+        cmd = [ "Trouble" ];
+        keys = lib.mkIf config.plugins.lz-n.enable [
+          {
+            __unkeyed-1 = "<leader>xx";
+            __unkeyed-2 = "<cmd>Trouble preview_split toggle<cr>";
+            desc = "Diagnostics toggle";
+          }
+          {
+            __unkeyed-1 = "<leader>xX";
+            __unkeyed-2 = "<cmd>Trouble preview_split toggle filter.buf=0<cr>";
+            desc = "Buffer Diagnostics toggle";
+          }
+          {
+            __unkeyed-1 = "<leader>us";
+            __unkeyed-2 = "<cmd>Trouble symbols toggle focus=false<cr>";
+            desc = "Symbols toggle";
+          }
+          {
+            __unkeyed-1 = "<leader>xl";
+            __unkeyed-2 = "<cmd>Trouble lsp toggle focus=false win.position=right<cr>";
+            desc = "LSP Definitions / references / ... toggle";
+          }
+          {
+            __unkeyed-1 = "<leader>xL";
+            __unkeyed-2 = "<cmd>Trouble loclist toggle<cr>";
+            desc = "Location List toggle";
+          }
+          {
+            __unkeyed-1 = "<leader>xQ";
+            __unkeyed-2 = "<cmd>Trouble qflist toggle<cr>";
+            desc = "Quickfix List toggle";
+          }
+        ];
+      };
+
       settings = {
         auto_close = true;
         modes = {
@@ -24,60 +62,9 @@
       {
         __unkeyed-1 = "<leader>x";
         mode = "n";
-        icon = "";
+        icon = "";
         group = "Trouble";
       }
     ];
   };
-
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>xx";
-      action = "<cmd>Trouble preview_split toggle<cr>";
-      options = {
-        desc = "Diagnostics toggle";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xX";
-      action = "<cmd>Trouble preview_split toggle filter.buf=0<cr>";
-      options = {
-        desc = "Buffer Diagnostics toggle";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>us";
-      action = "<cmd>Trouble symbols toggle focus=false<cr>";
-      options = {
-        desc = "Symbols toggle";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xl";
-      action = "<cmd>Trouble lsp toggle focus=false win.position=right<cr>";
-      options = {
-        desc = "LSP Definitions / references / ... toggle";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xL";
-      action = "<cmd>Trouble loclist toggle<cr>";
-      options = {
-        desc = "Location List toggle";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>xQ";
-      action = "<cmd>Trouble qflist toggle<cr>";
-      options = {
-        desc = "Quickfix List toggle";
-      };
-    }
-  ];
 }

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, lib, ... }:
 {
   imports = [
     ./manix.nix
@@ -9,6 +9,94 @@
     telescope = {
       enable = true;
       highlightTheme = "Catppuccin Macchiato";
+
+      lazyLoad.settings = {
+        cmd = [ "Telescope" ];
+        keys = lib.mkIf config.plugins.lz-n.enable [
+          {
+            __unkeyed-1 = "<leader>ft";
+            __unkeyed-2 = "<cmd>Telescope todo-comments<cr>";
+            desc = "View Todo";
+          }
+          {
+            __unkeyed-1 = "<leader><space>";
+            __unkeyed-2 = "<cmd>Telescope find_files hidden=true<cr>";
+            desc = "Find project files";
+          }
+          {
+            __unkeyed-1 = "<leader>/";
+            __unkeyed-2 = "<cmd>Telescope live_grep<cr>";
+            desc = "Grep (root dir)";
+          }
+          {
+            __unkeyed-1 = "<leader>f:";
+            __unkeyed-2 = "<cmd>Telescope command_history<cr>";
+            desc = "View Command History";
+          }
+          {
+            __unkeyed-1 = "<leader>fr";
+            __unkeyed-2 = "<cmd>Telescope oldfiles<cr>";
+            desc = "View Recent files";
+          }
+          {
+            __unkeyed-1 = "<c-p>";
+            __unkeyed-2 = "<cmd>Telescope registers<cr>";
+            mode = [ "n" "i" ];
+            desc = "Select register to paste";
+          }
+          {
+            __unkeyed-1 = "<leader>gc";
+            __unkeyed-2 = "<cmd>Telescope git_commits<cr>";
+            desc = "commits";
+          }
+          {
+            __unkeyed-1 = "<leader>fa";
+            __unkeyed-2 = "<cmd>Telescope autocommands<cr>";
+            desc = "Auto Commands";
+          }
+          {
+            __unkeyed-1 = "<leader>fc";
+            __unkeyed-2 = "<cmd>Telescope commands<cr>";
+            desc = "View Commands";
+          }
+          {
+            __unkeyed-1 = "<leader>fd";
+            __unkeyed-2 = "<cmd>Telescope diagnostics bufnr=0<cr>";
+            desc = "View Workspace diagnostics";
+          }
+          {
+            __unkeyed-1 = "<leader>fh";
+            __unkeyed-2 = "<cmd>Telescope help_tags<cr>";
+            desc = "View Help pages";
+          }
+          {
+            __unkeyed-1 = "<leader>fk";
+            __unkeyed-2 = "<cmd>Telescope keymaps<cr>";
+            desc = "View Key maps";
+          }
+          {
+            __unkeyed-1 = "<leader>fm";
+            __unkeyed-2 = "<cmd>Telescope man_pages<cr>";
+            desc = "View Man pages";
+          }
+          {
+            __unkeyed-1 = "<leader>f'";
+            __unkeyed-2 = "<cmd>Telescope marks<cr>";
+            desc = "View Marks";
+          }
+          {
+            __unkeyed-1 = "<leader>fo";
+            __unkeyed-2 = "<cmd>Telescope vim_options<cr>";
+            desc = "View Options";
+          }
+          {
+            __unkeyed-1 = "<leader>uC";
+            __unkeyed-2 = "<cmd>Telescope colorscheme<cr>";
+            desc = "Colorscheme preview";
+          }
+        ];
+      };
+
       extensions = {
         fzf-native.enable = true;
         ui-select = {
@@ -23,7 +111,7 @@
       };
 
       settings.defaults = {
-        prompt_prefix = "   ";
+        prompt_prefix = "   ";
         color_devicons = true;
         set_env.COLORTERM = "truecolor";
         file_ignore_patterns = [
@@ -67,76 +155,6 @@
           "--smart-case"
           "--trim"
         ];
-      };
-      keymaps = {
-        "<leader>ft" = {
-          action = "todo-comments";
-          options.desc = "View Todo";
-        };
-        "<leader><space>" = {
-          action = "find_files hidden=true";
-          options.desc = "Find project files";
-        };
-        "<leader>/" = {
-          action = "live_grep";
-          options.desc = "Grep (root dir)";
-        };
-        "<leader>f:" = {
-          action = "command_history";
-          options.desc = "View Command History";
-        };
-        "<leader>fr" = {
-          action = "oldfiles";
-          options.desc = "View Recent files";
-        };
-        "<c-p>" = {
-          mode = [
-            "n"
-            "i"
-          ];
-          action = "registers";
-          options.desc = "Select register to paste";
-        };
-        "<leader>gc" = {
-          action = "git_commits";
-          options.desc = "commits";
-        };
-        "<leader>fa" = {
-          action = "autocommands";
-          options.desc = "Auto Commands";
-        };
-        "<leader>fc" = {
-          action = "commands";
-          options.desc = "View Commands";
-        };
-        "<leader>fd" = {
-          action = "diagnostics bufnr=0";
-          options.desc = "View Workspace diagnostics";
-        };
-        "<leader>fh" = {
-          action = "help_tags";
-          options.desc = "View Help pages";
-        };
-        "<leader>fk" = {
-          action = "keymaps";
-          options.desc = "View Key maps";
-        };
-        "<leader>fm" = {
-          action = "man_pages";
-          options.desc = "View Man pages";
-        };
-        "<leader>f'" = {
-          action = "marks";
-          options.desc = "View Marks";
-        };
-        "<leader>fo" = {
-          action = "vim_options";
-          options.desc = "View Options";
-        };
-        "<leader>uC" = {
-          action = "colorscheme";
-          options.desc = "Colorscheme preview";
-        };
       };
     };
   };

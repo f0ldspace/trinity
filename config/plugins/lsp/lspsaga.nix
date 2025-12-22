@@ -1,7 +1,11 @@
+{ config, lib, ... }:
 {
   plugins = {
     lspsaga = {
       enable = true;
+
+      lazyLoad.settings.event = lib.mkIf config.plugins.lz-n.enable [ "LspAttach" ];
+
       settings = {
         beacon.enable = true;
         ui.border = "rounded"; # One of none, single, double, rounded, solid, shadow

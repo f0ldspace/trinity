@@ -1,7 +1,45 @@
+{ config, lib, ... }:
 {
   plugins = {
     bufferline = {
       enable = true;
+
+      lazyLoad.settings = {
+        event = lib.mkIf config.plugins.lz-n.enable [ "BufAdd" ];
+        keys = lib.mkIf config.plugins.lz-n.enable [
+          {
+            __unkeyed-1 = "<C-Tab>";
+            __unkeyed-2 = "<cmd>BufferLineCycleNext<cr>";
+            desc = "Cycle to next buffer";
+          }
+          {
+            __unkeyed-1 = "<C-S-Tab>";
+            __unkeyed-2 = "<cmd>BufferLineCyclePrev<cr>";
+            desc = "Cycle to previous buffer";
+          }
+          {
+            __unkeyed-1 = "<leader>br";
+            __unkeyed-2 = "<cmd>BufferLineCloseRight<cr>";
+            desc = "Delete buffers to the right";
+          }
+          {
+            __unkeyed-1 = "<leader>bl";
+            __unkeyed-2 = "<cmd>BufferLineCloseLeft<cr>";
+            desc = "Delete buffers to the left";
+          }
+          {
+            __unkeyed-1 = "<leader>bp";
+            __unkeyed-2 = "<cmd>BufferLineTogglePin<cr>";
+            desc = "Toggle pin";
+          }
+          {
+            __unkeyed-1 = "<leader>bP";
+            __unkeyed-2 = "<Cmd>BufferLineGroupClose ungrouped<CR>";
+            desc = "Delete non-pinned buffers";
+          }
+        ];
+      };
+
       settings = {
         highlights =
           let
@@ -102,60 +140,4 @@
       };
     };
   };
-
-  keymaps = [
-    {
-      mode = "n";
-      key = "<C-Tab>";
-      action = "<cmd>BufferLineCycleNext<cr>";
-      options = {
-        desc = "Cycle to next buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<C-S-Tab>";
-      action = "<cmd>BufferLineCyclePrev<cr>";
-      options = {
-        desc = "Cycle to previous buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>br";
-      action = "<cmd>BufferLineCloseRight<cr>";
-      options = {
-        desc = "Delete buffers to the right";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bl";
-      action = "<cmd>BufferLineCloseLeft<cr>";
-      options = {
-        desc = "Delete buffers to the left";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bp";
-      action = "<cmd>BufferLineTogglePin<cr>";
-      options = {
-        desc = "Toggle pin";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bP";
-      action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
-      options = {
-        desc = "Delete non-pinned buffers";
-      };
-    }
-  ];
 }
