@@ -78,7 +78,7 @@
     # ./util/firenvim.nix
     ./util/glance.nix
     ./util/hardtime.nix
-    ./util/img-clip.nix
+    # ./util/img-clip.nix
     # ./util/kulala.nix
     ./util/nvim-autopairs.nix
     ./util/nvim-surround.nix
