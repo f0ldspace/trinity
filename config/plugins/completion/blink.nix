@@ -92,6 +92,7 @@
           };
 
           menu = {
+            auto_show = false;
             border = "rounded";
             draw = {
               snippet_indicator = "◦";
