@@ -88,5 +88,6 @@
     ./util/project-nvim.nix
     ./util/package-info.nix
     ./util/taskwarrior.nix
+    ./util/vimwiki.nix
   ];
 }
