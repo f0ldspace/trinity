@@ -74,6 +74,7 @@
     ./util/colorizer.nix
     # ./util/compiler.nix
     ./util/debugprint.nix
+    ./util/leetcode.nix
     ./util/devdocs.nix
     # ./util/firenvim.nix
     ./util/glance.nix
