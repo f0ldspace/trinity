@@ -36,7 +36,7 @@
       enable = true;
       settings = {
         profiler.enabled = true;
-        picker.enabled = true;
+        picker.enabled = false;
         indent.enabled = true;
         input.enabled = true;
         scroll.enabled = true;

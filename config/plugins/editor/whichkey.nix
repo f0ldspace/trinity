@@ -71,6 +71,12 @@
           mode = "n";
           group = "Buffers";
         }
+
+        {
+          __unkeyed-1 = "<leader>T";
+          mode = "n";
+          group = "Tasks";
+        }
       ];
     };
   };

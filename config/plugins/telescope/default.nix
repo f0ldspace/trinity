@@ -1,4 +1,21 @@
 { pkgs, config, lib, ... }:
+let
+  # Helper to create a telescope keymap that ensures telescope is loaded first
+  mkTelescopeKey = key: cmd: desc: mode: {
+    inherit key;
+    mode = if mode == null then "n" else mode;
+    action.__raw = ''
+      function()
+        vim.cmd.packadd("telescope.nvim")
+        vim.cmd("${cmd}")
+      end
+    '';
+    options = {
+      inherit desc;
+      silent = true;
+    };
+  };
+in
 {
   imports = [
     ./manix.nix
@@ -12,89 +29,7 @@
 
       lazyLoad.settings = {
         cmd = [ "Telescope" ];
-        keys = lib.mkIf config.plugins.lz-n.enable [
-          {
-            __unkeyed-1 = "<leader>ft";
-            __unkeyed-2 = "<cmd>Telescope todo-comments<cr>";
-            desc = "View Todo";
-          }
-          {
-            __unkeyed-1 = "<leader><space>";
-            __unkeyed-2 = "<cmd>Telescope find_files hidden=true<cr>";
-            desc = "Find project files";
-          }
-          {
-            __unkeyed-1 = "<leader>/";
-            __unkeyed-2 = "<cmd>Telescope live_grep<cr>";
-            desc = "Grep (root dir)";
-          }
-          {
-            __unkeyed-1 = "<leader>f:";
-            __unkeyed-2 = "<cmd>Telescope command_history<cr>";
-            desc = "View Command History";
-          }
-          {
-            __unkeyed-1 = "<leader>fr";
-            __unkeyed-2 = "<cmd>Telescope oldfiles<cr>";
-            desc = "View Recent files";
-          }
-          {
-            __unkeyed-1 = "<c-p>";
-            __unkeyed-2 = "<cmd>Telescope registers<cr>";
-            mode = [ "n" "i" ];
-            desc = "Select register to paste";
-          }
-          {
-            __unkeyed-1 = "<leader>gc";
-            __unkeyed-2 = "<cmd>Telescope git_commits<cr>";
-            desc = "commits";
-          }
-          {
-            __unkeyed-1 = "<leader>fa";
-            __unkeyed-2 = "<cmd>Telescope autocommands<cr>";
-            desc = "Auto Commands";
-          }
-          {
-            __unkeyed-1 = "<leader>fc";
-            __unkeyed-2 = "<cmd>Telescope commands<cr>";
-            desc = "View Commands";
-          }
-          {
-            __unkeyed-1 = "<leader>fd";
-            __unkeyed-2 = "<cmd>Telescope diagnostics bufnr=0<cr>";
-            desc = "View Workspace diagnostics";
-          }
-          {
-            __unkeyed-1 = "<leader>fh";
-            __unkeyed-2 = "<cmd>Telescope help_tags<cr>";
-            desc = "View Help pages";
-          }
-          {
-            __unkeyed-1 = "<leader>fk";
-            __unkeyed-2 = "<cmd>Telescope keymaps<cr>";
-            desc = "View Key maps";
-          }
-          {
-            __unkeyed-1 = "<leader>fm";
-            __unkeyed-2 = "<cmd>Telescope man_pages<cr>";
-            desc = "View Man pages";
-          }
-          {
-            __unkeyed-1 = "<leader>f'";
-            __unkeyed-2 = "<cmd>Telescope marks<cr>";
-            desc = "View Marks";
-          }
-          {
-            __unkeyed-1 = "<leader>fo";
-            __unkeyed-2 = "<cmd>Telescope vim_options<cr>";
-            desc = "View Options";
-          }
-          {
-            __unkeyed-1 = "<leader>uC";
-            __unkeyed-2 = "<cmd>Telescope colorscheme<cr>";
-            desc = "Colorscheme preview";
-          }
-        ];
+        # Keys moved to keymaps below with explicit trigger_load
       };
 
       extensions = {
@@ -158,4 +93,24 @@
       };
     };
   };
+
+  # Telescope keymaps with explicit lazy loading trigger
+  keymaps = lib.mkIf (config.plugins.telescope.enable && config.plugins.lz-n.enable) [
+    (mkTelescopeKey "<leader>ft" "Telescope todo-comments" "View Todo" null)
+    (mkTelescopeKey "<leader><space>" "Telescope find_files hidden=true" "Find project files" null)
+    (mkTelescopeKey "<leader>/" "Telescope live_grep" "Grep (root dir)" null)
+    (mkTelescopeKey "<leader>f:" "Telescope command_history" "View Command History" null)
+    (mkTelescopeKey "<leader>fr" "Telescope oldfiles" "View Recent files" null)
+    (mkTelescopeKey "<c-p>" "Telescope registers" "Select register to paste" [ "n" "i" ])
+    (mkTelescopeKey "<leader>gc" "Telescope git_commits" "commits" null)
+    (mkTelescopeKey "<leader>fa" "Telescope autocommands" "Auto Commands" null)
+    (mkTelescopeKey "<leader>fc" "Telescope commands" "View Commands" null)
+    (mkTelescopeKey "<leader>fd" "Telescope diagnostics bufnr=0" "View Workspace diagnostics" null)
+    (mkTelescopeKey "<leader>fh" "Telescope help_tags" "View Help pages" null)
+    (mkTelescopeKey "<leader>fk" "Telescope keymaps" "View Key maps" null)
+    (mkTelescopeKey "<leader>fm" "Telescope man_pages" "View Man pages" null)
+    (mkTelescopeKey "<leader>f'" "Telescope marks" "View Marks" null)
+    (mkTelescopeKey "<leader>fo" "Telescope vim_options" "View Options" null)
+    (mkTelescopeKey "<leader>uC" "Telescope colorscheme" "Colorscheme preview" null)
+  ];
 }
