@@ -1,4 +1,5 @@
 { pkgs, lib, ... }:
+# TODO: Better Keybinds
 let
   taskwarrior-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "taskwarrior-nvim";
@@ -18,43 +19,35 @@ in
     require("taskwarrior_nvim").setup({})
   '';
 
-  keymaps = lib.mapAttrsToList
-    (
-      key:
-      { action, ... }@attrs:
-      {
-        mode = attrs.mode or "n";
-        inherit action key;
-        options = {
-          desc = attrs.desc;
-          silent = true;
-        };
-      }
-    )
+  # Taskwarrior keymaps
+  # Browser has internal keymaps: <M-d> done, <M-S-d> delete, <M-s> start/stop, <M-a> add, <M-y> yank uuid
+  keymaps = [
     {
-      "<leader>Tb" = {
-        action = "<cmd>lua require('taskwarrior_nvim').browser()<CR>";
-        desc = "Task browser (Telescope)";
+      mode = "n";
+      key = "<leader>Tb";
+      action.__raw = ''function() require("taskwarrior_nvim").browser({"ready"}) end'';
+      options = {
+        desc = "Task browser (ready)";
+        silent = true;
       };
-      "<leader>Tl" = {
-        action = "<cmd>lua require('taskwarrior_nvim').pending()<CR>";
-        desc = "List pending tasks";
+    }
+    {
+      mode = "n";
+      key = "<leader>Ta";
+      action.__raw = ''function() require("taskwarrior_nvim").browser({}) end'';
+      options = {
+        desc = "Task browser (all)";
+        silent = true;
       };
-      "<leader>Tc" = {
-        action = "<cmd>lua require('taskwarrior_nvim').completed()<CR>";
-        desc = "List completed tasks";
+    }
+    {
+      mode = "n";
+      key = "<leader>Tc";
+      action.__raw = ''function() require("taskwarrior_nvim").go_to_config_file() end'';
+      options = {
+        desc = "Taskwarrior config";
+        silent = true;
       };
-      "<leader>Ts" = {
-        action = "<cmd>lua require('taskwarrior_nvim').toggle()<CR>";
-        desc = "Start/stop current task";
-      };
-      "<leader>Td" = {
-        action = "<cmd>lua require('taskwarrior_nvim').done()<CR>";
-        desc = "Mark task done";
-      };
-      "<leader>TD" = {
-        action = "<cmd>lua require('taskwarrior_nvim').delete()<CR>";
-        desc = "Delete task";
-      };
-    };
+    }
+  ];
 }
