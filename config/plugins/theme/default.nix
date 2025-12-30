@@ -1,48 +1,26 @@
 {
   colorschemes = {
-    catppuccin = {
+    rose-pine = {
       enable = true;
       settings = {
-        background = {
-          light = "macchiato";
-          dark = "mocha";
+        variant = "dawn";
+        dark_variant = "moon";
+        styles = {
+          bold = true;
+          italic = true;
+          transparency = false;
         };
-        flavour = "macchiato"; # “latte”, “mocha”, “frappe”, “macchiato”, “auto”
-        transparent_background = true;
-        integrations = {
-          cmp = true;
-          flash = true;
-          fidget = true;
-          gitsigns = true;
-          indent_blankline.enabled = true;
-          lsp_trouble = true;
-          mini.enabled = true;
-          neotree = true;
-          noice = true;
-          notify = true;
-          telescope.enabled = true;
-          treesitter = true;
-          treesitter_context = true;
-          which_key = true;
-          native_lsp = {
-            enabled = true;
-            inlay_hints = {
-              background = true;
-            };
-            virtual_text = {
-              errors = [ "italic" ];
-              hints = [ "italic" ];
-              information = [ "italic" ];
-              warnings = [ "italic" ];
-              ok = [ "italic" ];
-            };
-            underlines = {
-              errors = [ "underline" ];
-              hints = [ "underline" ];
-              information = [ "underline" ];
-              warnings = [ "underline" ];
-            };
-          };
+        highlight_groups = {
+          TelescopeBorder = { fg = "overlay"; bg = "overlay"; };
+          TelescopeNormal = { fg = "subtle"; bg = "overlay"; };
+          TelescopeSelection = { fg = "text"; bg = "highlight_med"; };
+          TelescopeSelectionCaret = { fg = "love"; bg = "highlight_med"; };
+          TelescopeMultiSelection = { fg = "text"; bg = "highlight_high"; };
+          TelescopeTitle = { fg = "base"; bg = "love"; };
+          TelescopePromptTitle = { fg = "base"; bg = "pine"; };
+          TelescopePreviewTitle = { fg = "base"; bg = "iris"; };
+          TelescopePromptNormal = { fg = "text"; bg = "surface"; };
+          TelescopePromptBorder = { fg = "surface"; bg = "surface"; };
         };
       };
     };

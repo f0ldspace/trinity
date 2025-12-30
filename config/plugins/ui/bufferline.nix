@@ -43,8 +43,8 @@
       settings = {
         highlights =
           let
-            commonBgColor = "#363a4f";
-            commonFgColor = "#1e2030";
+            commonBgColor = "#f2e9e1";  # rose-pine overlay
+            commonFgColor = "#faf4ed";  # rose-pine base
 
             commonSelectedAttrs = {
               bg = commonBgColor;
