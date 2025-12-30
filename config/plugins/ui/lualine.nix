@@ -11,12 +11,6 @@ in
   plugins.lualine = {
     enable = true;
 
-    lazyLoad.settings.event = [
-      "VimEnter"
-      "BufReadPost"
-      "BufNewFile"
-    ];
-
     settings = {
       options = {
         always_divide_middle = true;
@@ -182,7 +176,7 @@ in
                 removed= "${icons.git.LineRemoved}",
                 },
               },
-              ${optionalString (config.plugins.copilot-lua.enable) "copilot,"}
+              ${optionalString (config.plugins.copilot-lua.enable or false) "copilot,"}
           }
       }
     })

@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   plugins = {
-    dap-python.enable = true;
+    dap-python.enable = false;
 
     conform-nvim.settings = {
       formatters_by_ft.python = [

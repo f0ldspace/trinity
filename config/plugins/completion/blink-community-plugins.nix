@@ -19,7 +19,7 @@ in
     blink-cmp-git = mkBlinkPlugin { };
     blink-cmp-spell = mkBlinkPlugin { };
     blink-cmp-words = mkBlinkPlugin { };
-    blink-copilot = mkBlinkPlugin { };
+    blink-copilot = mkBlinkPlugin { enable = false; };
     blink-emoji = mkBlinkPlugin { };
     blink-ripgrep = mkBlinkPlugin { };
   };

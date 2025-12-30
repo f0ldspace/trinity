@@ -1,10 +1,10 @@
 {
   imports = [
     # ./ai/avante.nix
-    ./ai/copilot-lua.nix
-    ./ai/copilot-lsp.nix
-    ./ai/opencode.nix
-    ./ai/sidekick.nix
+    # ./ai/copilot-lua.nix
+    # ./ai/copilot-lsp.nix
+    # ./ai/opencode.nix
+    # ./ai/sidekick.nix
     # ./ai/windsurf.nix
 
     ./completion/blink.nix
@@ -12,14 +12,14 @@
     # ./completion/lspkind.nix
 
     ./debug/dap.nix
-    ./debug/neotest.nix
+    # ./debug/neotest.nix
 
     ./editor/lz-n.nix
     # ./editor/neotree.nix
     ./editor/neogen.nix
     ./editor/undotree.nix
     ./editor/whichkey.nix
-    ./editor/yanky.nix
+    # ./editor/yanky.nix
     ./editor/yazi.nix
 
     ./theme
@@ -75,7 +75,7 @@
     # ./util/compiler.nix
     ./util/debugprint.nix
     ./util/leetcode.nix
-    ./util/devdocs.nix
+    # ./util/devdocs.nix
     # ./util/firenvim.nix
     ./util/glance.nix
     ./util/hardtime.nix
