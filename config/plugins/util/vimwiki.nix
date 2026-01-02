@@ -9,6 +9,12 @@
           syntax = "markdown";
           ext = ".md";
         }
+        {
+          name = "personal";
+          path = "~/personal/";
+          syntax = "markdown";
+          ext = ".md";
+        }
       ];
     };
   };
@@ -28,7 +34,7 @@
     }
     {
       mode = "n";
-      key = "<leader>ws";
+      key = "<leader>wc";
       action = "<cmd>VimwikiUISelect<CR>";
       options.desc = "Select Wiki";
     }
@@ -40,7 +46,7 @@
     }
     {
       mode = "n";
-      key = "<leader>w<leader>w";
+      key = "<leader>wl";
       action = "<cmd>VimwikiMakeDiaryNote<CR>";
       options.desc = "Create Diary Note";
     }
