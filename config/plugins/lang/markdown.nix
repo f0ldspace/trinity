@@ -38,20 +38,6 @@ in
 
     lsp.servers = {
       marksman.enable = true;
-
-      ltex = {
-        enable = true;
-        filetypes = [
-          "markdown"
-          "text"
-        ];
-
-        settings = {
-          completionEnabled = false;
-          checkFrequency = "save";
-          language = "en-GB";
-        };
-      };
     };
 
     lint = {

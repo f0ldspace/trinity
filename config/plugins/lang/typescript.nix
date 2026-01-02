@@ -52,7 +52,6 @@
           "typescript.tsx"
           "vue"
           "html"
-          "markdown"
           "json"
           "jsonc"
           "yaml"
