@@ -5,16 +5,17 @@
     settings = {
       list = [
         {
-          path = "~/vimwiki/";
-          syntax = "markdown";
-          ext = ".md";
-        }
-        {
           name = "personal";
           path = "~/personal/";
           syntax = "markdown";
           ext = ".md";
           diary_rel_path = "";
+        }
+        {
+          name = "work";
+          path = "~/vimwiki/";
+          syntax = "markdown";
+          ext = ".md";
         }
       ];
     };
