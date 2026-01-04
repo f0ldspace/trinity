@@ -11,13 +11,13 @@
     ./completion/friendly-snippets.nix
     # ./completion/lspkind.nix
 
-    ./debug/dap.nix
+    # ./debug/dap.nix
     # ./debug/neotest.nix
 
     ./editor/lz-n.nix
     # ./editor/neotree.nix
-    ./editor/neogen.nix
-    ./editor/undotree.nix
+    # ./editor/neogen.nix
+    # ./editor/undotree.nix
     ./editor/whichkey.nix
     # ./editor/yanky.nix
     ./editor/yazi.nix
@@ -73,7 +73,7 @@
 
     ./util/colorizer.nix
     # ./util/compiler.nix
-    ./util/debugprint.nix
+    # ./util/debugprint.nix
     ./util/leetcode.nix
     # ./util/devdocs.nix
     # ./util/firenvim.nix
@@ -88,6 +88,6 @@
     ./util/project-nvim.nix
     ./util/package-info.nix
     ./util/taskwarrior.nix
-    ./util/vimwiki.nix
+    # ./util/vimwiki.nix
   ];
 }

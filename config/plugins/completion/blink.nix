@@ -23,8 +23,8 @@
 
   extraPlugins = with pkgs.vimPlugins; [
     blink-cmp-conventional-commits
-    blink-cmp-npm-nvim
-    blink-cmp-yanky
+    # blink-cmp-npm-nvim
+    # blink-cmp-yanky
     blink-nerdfont-nvim
   ];
 

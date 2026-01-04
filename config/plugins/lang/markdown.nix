@@ -18,7 +18,7 @@ in
     };
 
     image = {
-      enable = enableExceptInTests;
+      enable = false;
       settings = {
         integrations.markdown = {
           clearInInsertMode = true;
