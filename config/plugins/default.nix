@@ -79,7 +79,6 @@
     # ./util/firenvim.nix
     ./util/glance.nix
     ./util/hardtime.nix
-    # ./util/img-clip.nix
     # ./util/kulala.nix
     ./util/nvim-autopairs.nix
     ./util/nvim-surround.nix
@@ -88,6 +87,7 @@
     ./util/project-nvim.nix
     ./util/package-info.nix
     ./util/taskwarrior.nix
+    ./util/wakatime.nix
     # ./util/vimwiki.nix
   ];
 }

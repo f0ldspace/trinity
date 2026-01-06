@@ -97,7 +97,7 @@ in
   # Telescope keymaps with explicit lazy loading trigger
   keymaps = lib.mkIf (config.plugins.telescope.enable && config.plugins.lz-n.enable) [
     (mkTelescopeKey "<leader>ft" "Telescope todo-comments" "View Todo" null)
-    (mkTelescopeKey "<leader><space>" "Telescope find_files hidden=true" "Find project files" null)
+    (mkTelescopeKey "<leader><space>" "Telescope find_files" "Find project files" null)
     (mkTelescopeKey "<leader>/" "Telescope live_grep" "Grep (root dir)" null)
     (mkTelescopeKey "<leader>f:" "Telescope command_history" "View Command History" null)
     (mkTelescopeKey "<leader>fr" "Telescope oldfiles" "View Recent files" null)
