@@ -3,7 +3,7 @@
     rose-pine = {
       enable = true;
       settings = {
-        variant = "dawn";
+        variant = "main";
         dark_variant = "moon";
         styles = {
           bold = true;

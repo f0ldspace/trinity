@@ -50,7 +50,7 @@
     ./lang/python.nix
     ./lang/shell.nix
     ./lang/rust.nix
-    ./lang/typescript.nix
+    # ./lang/typescript.nix
     ./lang/typst.nix
     ./lang/yaml.nix
 
@@ -88,6 +88,5 @@
     ./util/package-info.nix
     ./util/taskwarrior.nix
     ./util/wakatime.nix
-    # ./util/vimwiki.nix
   ];
 }
