@@ -88,5 +88,6 @@
     ./util/package-info.nix
     ./util/taskwarrior.nix
     ./util/wakatime.nix
+    ./util/org-roam.nix
   ];
 }
