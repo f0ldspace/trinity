@@ -36,6 +36,7 @@
 ---
 
 # 🔨 Installation
+
 If you'd like to give it a try before installing:
 `nix run github:f0ldspace/trinity`
 

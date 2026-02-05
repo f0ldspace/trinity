@@ -27,6 +27,18 @@ in
       directory = "/home/f0ld/wiki",
       -- Disable default bindings since we define our own
       bindings = false,
+      -- Use folder structure: YYYY/mm-title.org
+      templates = {
+        d = {
+          description = "default",
+          template = "%?",
+          target = "%<%Y>%[sep]%<%m>-%[slug].org",
+        },
+      },
+      -- Also for immediate mode (insert_node_immediate)
+      immediate = {
+        target = "%<%Y>%[sep]%<%m>-%[slug].org",
+      },
     })
   '';
 
