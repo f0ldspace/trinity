@@ -18,16 +18,12 @@
             };
             type = "text";
             val = [
-"▄▄▄█████▓ ██▀███   ██▓ ███▄    █  ██▓▄▄▄█████▓▓██   ██▓"
-"▓  ██▒ ▓▒▓██ ▒ ██▒▓██▒ ██ ▀█   █ ▓██▒▓  ██▒ ▓▒ ▒██  ██▒"
-"▒ ▓██░ ▒░▓██ ░▄█ ▒▒██▒▓██  ▀█ ██▒▒██▒▒ ▓██░ ▒░  ▒██ ██░"
-"░ ▓██▓ ░ ▒██▀▀█▄  ░██░▓██▒  ▐▌██▒░██░░ ▓██▓ ░   ░ ▐██▓░"
-"  ▒██▒ ░ ░██▓ ▒██▒░██░▒██░   ▓██░░██░  ▒██▒ ░   ░ ██▒▓░"
-"  ▒ ░░   ░ ▒▓ ░▒▓░░▓  ░ ▒░   ▒ ▒ ░▓    ▒ ░░      ██▒▒▒ "
-"    ░      ░▒ ░ ▒░ ▒ ░░ ░░   ░ ▒░ ▒ ░    ░     ▓██ ░▒░ "
-"  ░        ░░   ░  ▒ ░   ░   ░ ░  ▒ ░  ░       ▒ ▒ ░░  "
-"            ░      ░           ░  ░            ░ ░     "
-"                                               ░ ░"
+              "   ▄▄▄▄▀ █▄▄▄▄ ▄█    ▄   ▄█    ▄▄▄▄▀ ▀▄    ▄ "
+              "▀▀▀ █    █  ▄▀ ██     █  ██ ▀▀▀ █      █  █  "
+              "    █    █▀▀▌  ██ ██   █ ██     █       ▀█   "
+              "   █     █  █  ▐█ █ █  █ ▐█    █        █    "
+              "  ▀        █    ▐ █  █ █  ▐   ▀       ▄▀     "
+              "          ▀       █   ██                     "
             ];
           }
           (padding 6)
@@ -122,31 +118,6 @@
                 }
               ];
               shortcut = "g";
-
-              position = "center";
-              cursor = 3;
-              width = 40;
-              align_shortcut = "right";
-              hl_shortcut = "Keyword";
-            };
-          }
-          (padding 1)
-          {
-            type = "button";
-            val = "  Restore Session";
-            on_press.raw = "require('persistence').load()";
-            opts = {
-              keymap = [
-                "n"
-                "s"
-                ":lua require('persistence').load()<cr>"
-                {
-                  noremap = true;
-                  silent = true;
-                  nowait = true;
-                }
-              ];
-              shortcut = "s";
 
               position = "center";
               cursor = 3;

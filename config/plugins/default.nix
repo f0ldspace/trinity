@@ -3,6 +3,7 @@
     # ./ai/avante.nix
     # ./ai/copilot-lua.nix
     # ./ai/copilot-lsp.nix
+    ./ai/minuet.nix
     # ./ai/opencode.nix
     # ./ai/sidekick.nix
     # ./ai/windsurf.nix
@@ -88,6 +89,6 @@
     ./util/package-info.nix
     ./util/taskwarrior.nix
     ./util/wakatime.nix
-    ./util/org-roam.nix
+    # ./util/org-roam.nix
   ];
 }
