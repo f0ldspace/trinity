@@ -81,6 +81,7 @@
     ./util/glance.nix
     ./util/hardtime.nix
     # ./util/kulala.nix
+    ./util/obsidian.nix
     ./util/nvim-autopairs.nix
     ./util/nvim-surround.nix
     ./util/plenary.nix
