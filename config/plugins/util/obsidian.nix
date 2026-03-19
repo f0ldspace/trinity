@@ -4,6 +4,18 @@
   ...
 }:
 {
+  autoCmd = lib.mkIf config.plugins.obsidian.enable [
+    {
+      event = [ "FileType" ];
+      pattern = [ "markdown" ];
+      callback.__raw = ''
+        function()
+          vim.opt_local.conceallevel = 2
+        end
+      '';
+    }
+  ];
+
   plugins.obsidian = {
     enable = true;
 
@@ -15,7 +27,7 @@
         }
       ];
 
-      notes_subdir = "notes";
+      notes_subdir = "/";
       daily_notes = {
         folder = "daily";
         date_format = "%Y-%m-%d";
@@ -23,9 +35,21 @@
 
       completion = {
         nvim_cmp = false;
-        blink = true;
+        blink = false;
         min_chars = 2;
       };
+
+      note_id_func.__raw = ''
+        function(title)
+          local date = os.date("%y%m%d")
+          if title ~= nil then
+            local suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+            return date .. "-" .. suffix
+          else
+            return date
+          end
+        end
+      '';
 
       new_notes_location = "notes_subdir";
 
